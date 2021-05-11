@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:21.04 AS tesnet-binries
 
 ARG BNC_VERSION=0.8.1
 
@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 WORKDIR /binaries
 
-RUN git clone --detpth 1 https://github.com/binance-chain/node-binary.git .
+RUN git clone --depth 1 https://github.com/binance-chain/node-binary.git .
 
 RUN git lfs pull -I fullnode/testnet/${BNC_VERSION}/linux
 RUN git lfs pull -I cli/testnet/${BNC_VERSION}/linux

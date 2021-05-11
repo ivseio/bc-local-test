@@ -1,8 +1,13 @@
 version: '3.0'
 services:
+  binaries:
+    build: testnet-binaries
+    image: testnet-binaries
   node:
     build: node
     image: bnc-node
+    depends_on:
+      - binaries
     networks:
       - binance_rpc_net
     ports:
@@ -12,6 +17,8 @@ services:
   api-server:
     build: api-server
     image: bnc-api-server
+    depends_on:
+      - binaries
     networks:
       - binance_rpc_net
     ports:
