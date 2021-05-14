@@ -1,4 +1,4 @@
-FROM alpine:3.9.4
+FROM debian:buster-slim
 
 ARG BNC_VERSION=0.8.1
 
